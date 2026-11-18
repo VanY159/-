@@ -1,0 +1,15 @@
+{
+  "name": "Бобі — офлайн-бот",
+  "short_name": "Бобі",
+  "description": "Бот зі штучним інтелектом, який реагує на слова й дотики без інтернету",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#0d1330",
+  "theme_color": "#0d1330",
+  "lang": "uk",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

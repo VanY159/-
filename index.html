@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#0d1330">
+  <meta name="description" content="Офлайн-бот зі штучним інтелектом, який реагує на слова й дотики">
+  <title>Бобі — офлайн-бот</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="stage">
+    <canvas id="scene" aria-label="Бот. Торкайся, гладь, обіймай"></canvas>
+    <div id="bubble" class="hidden" role="status" aria-live="polite"></div>
+
+    <header id="topbar">
+      <div id="status"><span id="botName">Бобі</span> <span id="moodIcon">🙂</span></div>
+      <div class="tools">
+        <button id="btnVoice" title="Голос бота" aria-label="Голос бота">🔊</button>
+        <button id="btnSound" title="Звуки" aria-label="Звуки">🎵</button>
+        <button id="btnHelp" title="Що вміє бот" aria-label="Допомога">❔</button>
+      </div>
+    </header>
+
+    <div id="log" aria-live="polite"></div>
+
+    <form id="inputBar" autocomplete="off">
+      <button type="button" id="btnMic" title="Говорити" aria-label="Говорити">🎤</button>
+      <input id="text" type="text" placeholder="Скажи щось боту…" enterkeyhint="send" maxlength="200">
+      <button type="submit" id="btnSend" aria-label="Надіслати">➤</button>
+    </form>
+  </div>
+
+  <div id="help" class="hidden" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+    <div class="card">
+      <h2 id="helpTitle">Як гратися з ботом</h2>
+      <h3>Дотики</h3>
+      <ul>
+        <li><b>Тицьни</b> в тіло, очі, антену чи животик: на кожне місце своя реакція</li>
+        <li><b>Погладь</b>: повільно веди пальцем по голові</li>
+        <li><b>Обійми</b>: затисни палець на боті</li>
+        <li><b>Полоскочи</b>: кілька швидких тапів</li>
+        <li><b>Подвійний тап</b>: стрибок</li>
+        <li><b>Штовхни</b>: швидкий змах по боту</li>
+        <li><b>Струсни телефон</b>: у бота запаморочиться голова</li>
+      </ul>
+      <h3>Слова</h3>
+      <ul>
+        <li>«привіт», «як справи», «розкажи жарт», «танцюй», «заспівай», «спи»</li>
+        <li>«мене звати Оля», «як мене звати», «тебе звати Робік»</li>
+        <li>«скільки буде 12 * 7», «котра година», «яке сьогодні число»</li>
+        <li>«запам'ятай, що кіт — це пухнастик», потім «що таке кіт»</li>
+        <li>«коли я кажу банан, відповідай смачно!»: так бот вчиться новим фразам</li>
+        <li>«що ти пам'ятаєш», «забудь усе»</li>
+      </ul>
+      <p class="note">Усе працює без інтернету, пам'ять зберігається на цьому пристрої. Розпізнавання голосу залежить від браузера: в Android Chrome офлайн працює, якщо встановлено офлайн-пакет української мови.</p>
+      <div class="row">
+        <button id="btnReset" class="danger">Стерти пам'ять</button>
+        <button id="btnCloseHelp">Зрозуміло</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="sound.js"></script>
+  <script src="brain.js"></script>
+  <script src="bot.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
