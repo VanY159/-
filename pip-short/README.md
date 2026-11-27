@@ -12,7 +12,7 @@
 
 ```bash
 node audio.mjs                         # out/audio.wav
-node render.mjs --workers 3            # out/pip_ep1_en.mp4 (титри англійською; --langs uk — українською)
+node render.mjs --workers 3            # out/pip_ep1_uk.mp4 (титри українською; --langs en — англійською)
 node preview.mjs out/check.png 1.5 40 97 --sheet   # контрольні кадри
 ```
 
@@ -23,7 +23,7 @@ node preview.mjs out/check.png 1.5 40 97 --sheet   # контрольні кад
 | `src/engine.js` | камера, проекція, шари, дощ, блискавки, титри |
 | `src/cats.js` | персонажі та реквізит (пліт, коробка, ящики, пляшки) |
 | `src/world.js` | світи: міст і річка, вулиця, вулиця-канал, кімната, провулок, підводна сцена, світанок |
-| `src/scenes.js` | таймлайн: 13 сцен, рух камери, титри (EN за замовчуванням) |
+| `src/scenes.js` | таймлайн: 13 сцен, рух камери, титри (українською за замовчуванням) |
 | `audio.mjs` | музика та SFX за тим самим таймлайном |
 | `render.mjs` | паралельний рендер → x264 → склейка → AAC |
 

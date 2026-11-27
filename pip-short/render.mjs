@@ -1,5 +1,5 @@
 // Parallel frame renderer: headless Chromium canvas -> JPEG -> ffmpeg (x264) segments -> concat + audio
-// usage: node render.mjs [--workers 3] [--langs en]   (titles: en or uk)
+// usage: node render.mjs [--workers 3] [--langs uk]   (titles: uk or en)
 import { createRequire } from 'node:module';
 import { spawn, execFileSync } from 'node:child_process';
 import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
@@ -10,7 +10,7 @@ const { chromium } = createRequire(import.meta.url)('playwright');
 const here = path.dirname(fileURLToPath(import.meta.url));
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const WORKERS = parseInt(arg('workers', '3'));
-const LANGS = arg('langs', 'en').split(',');
+const LANGS = arg('langs', 'uk').split(',');
 const FPS = 30, TOTAL = 150 * FPS;
 const segDir = path.join(here, 'out', 'seg');
 mkdirSync(segDir, { recursive: true });
