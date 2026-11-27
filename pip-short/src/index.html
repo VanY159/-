@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+</head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="engine.js"></script>
+<script src="cats.js"></script>
+<script src="world.js"></script>
+<script src="scenes.js"></script>
+<script>
+  // Entry points used by the Node renderer
+  window.READY = (async () => {
+    await document.fonts.load('900 80px "Inter Display"');
+    await document.fonts.load('800 80px Inter');
+    initCanvases();
+    if (window.initWorld) initWorld();
+    return true;
+  })();
+  window.renderAt = (t, lang) => {
+    LANG = lang || 'en';
+    renderFrame(t);
+  };
+  window.frameJPEG = (t, lang, q) => {
+    window.renderAt(t, lang);
+    return CANVAS.main.toDataURL('image/jpeg', q || 0.93);
+  };
+  window.framePNG = (t, lang) => {
+    window.renderAt(t, lang);
+    return CANVAS.main.toDataURL('image/png');
+  };
+</script>
+</body>
+</html>
